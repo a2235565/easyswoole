@@ -32,7 +32,7 @@ class Auth implements CommandInterface
     {
         $fd = $caller->getClient()->getFd();
         $args = $caller->getArgs();
-        if (Config::getInstance()->getConf('CONSOLE.AUTH') == array_shift($args)) {
+        if (Config::getInstance()->getConf('CONSOLE.AUTH').'' == array_shift($args)) {
             TableManager::getInstance()->get('Console.Auth')->set($fd, [
                 'isAuth'   => 1,
                 'tryTimes' => 0
